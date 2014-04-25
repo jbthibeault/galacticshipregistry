@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140425165939) do
+ActiveRecord::Schema.define(:version => 20140425214418) do
 
   create_table "captains", :force => true do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.date    "date_of_birth"
     t.integer "planet_id"
+  end
+
+  create_table "engines", :force => true do |t|
+    t.string  "name"
+    t.text    "model_num"
+    t.text    "manufacturer"
+    t.decimal "tax"
   end
 
   create_table "planets", :force => true do |t|

@@ -1,0 +1,20 @@
+<h1>All Engines</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Model Number</th>
+    <th>Manufacturer</th>
+    <th>Tax</th>
+  </tr>
+<% @engines.each do |engine| %>
+  <tr>
+    <td><%= engine.name %></td>
+    <td><%= engine.model_num %></td>
+    <td><%= engine.manufacturer %></td>
+    <td><%= engine.tax %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New Engine", new_engine_path %>
