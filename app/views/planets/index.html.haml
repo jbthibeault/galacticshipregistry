@@ -1,0 +1,18 @@
+<h1>All Planets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>System</th>
+    <th>Tax Rate</th>
+  </tr>
+<% @planets.each do |planet| %>
+  <tr>
+    <td><%= planet.name %></td>
+    <td><%= planet.system %></td>
+    <td><%= planet.tax_rate %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New Planet", new_planet_path %>
