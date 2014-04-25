@@ -1,0 +1,20 @@
+<h1>All Captains</h1>
+
+<table>
+  <tr>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Home Planet</th>
+    <th>Birthdate</th>
+  </tr>
+<% @captains.each do |captain| %>
+  <tr>
+    <td><%= captain.first_name %></td>
+    <td><%= captain.last_name %></td>
+    <td><%= Planet.find(captain.planet_id).name %></td>
+    <td><%= captain.date_of_birth %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New Captain", new_captain_path %>
