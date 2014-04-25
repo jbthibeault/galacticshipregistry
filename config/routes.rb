@@ -2,6 +2,9 @@ Gsr::Application.routes.draw do
 
   resources :planets
   root :to => redirect('/planets')
+
+  resources :captains
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
