@@ -7,6 +7,8 @@ Gsr::Application.routes.draw do
 
   resources :engines
 
+  resources :ships
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

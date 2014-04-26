@@ -1,0 +1,35 @@
+<h1>New Ship</h1>
+
+<%= form_for :ship, url: ships_path() do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :captain %><br>
+    <%= f.collection_select(:captains_id, Captain.all, :id, :last_name) %>
+  </p>
+  <p>
+    <%= f.label :planet %><br>
+    <%= f.collection_select(:planet_id, Planet.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.label :engine %><br>
+    <%= f.collection_select(:engine_id, Engine.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.label :num_engines %><br>
+    <%= f.select :num_engines, (0..5) %>
+  </p>
+  <p>
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %> 
