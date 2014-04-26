@@ -13,9 +13,9 @@ class ShipsController < ApplicationController
 
   def create
     @ship = Ship.new(params[:ship])
-    @captain = Captain.find(@ship.captains_id) #why is this plural? so it works. I don't understand
-    @planet = Planet.find(@ship.planet_id)
-    @engine = Engine.find(@ship.engine_id)
+#@captain = Captain.find(@ship.captains_id) #why is this plural? so it works. I don't understand
+#   @planet = Planet.find(@ship.planet_id)
+#   @engine = Engine.find(@ship.engine_id)
 
     if @ship.save
       redirect_to @ship

@@ -1,9 +1,15 @@
-<h1>Captain <%= @captain.last_name %></h1>
+<% captain = Captain.find(@ship.captains_id) 
+   planet  = Planet.find(@ship.planet_id)
+   engine  = Engine.find(@ship.engine_id)  %>
+
+
+<h1><%= @ship.classification %> <%= @ship.name %> </h1>
     
 <p>
-  <b>First Name</b>: <%= @captain.first_name %><br/>
-  <b>Last Name</b>: <%= @captain.last_name %><br/>
-  <b>Home World</b>: <%= Planet.find(@captain.planet_id).name %><br/>
-  <b>Birthday</b>: <%= @captain.date_of_birth %><br/>
+  <b>Captain</b>: <%= link_to "Captain " + captain.last_name, captain_path(captain) %>
+  <b>Registered On</b>: <%= planet.name %><br/>
+  <b>Engine</b>: <%= engine.name %><br/>
+  <b>Number of Engines</b>: <%= @ship.num_engines %><br/>
+  <b>Weight</b><%= @ship.weight %><br/>
 
-<%= link_to "Back to Captains roster", captains_path %>
+<%= link_to "Back to list of ships", ships_path %>
