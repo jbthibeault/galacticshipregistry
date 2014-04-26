@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140426205542) do
+ActiveRecord::Schema.define(:version => 20140426211949) do
 
   create_table "captains", :force => true do |t|
     t.string  "first_name"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(:version => 20140426205542) do
 
   create_table "ships", :force => true do |t|
     t.text    "name"
-    t.text    "type"
     t.decimal "weight"
     t.integer "num_engines"
     t.integer "engine_id"
     t.integer "planet_id"
     t.integer "captains_id"
+    t.text    "classification"
   end
 
 end
