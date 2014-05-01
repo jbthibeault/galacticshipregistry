@@ -6,6 +6,7 @@
     <th>First Name</th>
     <th>Home Planet</th>
     <th>Birthdate</th>
+   <th>Email</th>
   </tr>
 <% @captains.each do |captain| %>
   <tr>
@@ -13,6 +14,7 @@
     <td><%= captain.last_name %></td>
     <td><%= Planet.find(captain.planet_id).name %></td>
     <td><%= captain.date_of_birth %></td>
+    <td><%= captain.email %></td>
   </tr>
 <% end %>
 </table>

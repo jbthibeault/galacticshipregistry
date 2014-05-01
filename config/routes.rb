@@ -1,13 +1,17 @@
 Gsr::Application.routes.draw do
 
   resources :planets
-  root :to => redirect('/planets')
-
   resources :captains
-
+  resources :sessions, only: [:new, :create, :destroy]
   resources :engines
+  resources :ships, only: [:index, :new, :show, :create, :destroy]
 
-  resources :ships
+  root to: 'sessions#new'
+
+  match '/signup',  to: 'captains#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,10 +10,6 @@
     <%= f.text_field :classification %>
   </p>
   <p>
-    <%= f.label :captain %><br>
-    <%= f.collection_select(:captains_id, Captain.all, :id, :last_name) %>
-  </p>
-  <p>
     <%= f.label :planet %><br>
     <%= f.collection_select(:planet_id, Planet.all, :id, :name) %>
   </p>
