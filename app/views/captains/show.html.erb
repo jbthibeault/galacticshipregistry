@@ -5,5 +5,7 @@
   <b>Last Name</b>: <%= @captain.last_name %><br/>
   <b>Home World</b>: <%= Planet.find(@captain.planet_id).name %><br/>
   <b>Birthday</b>: <%= @captain.date_of_birth %><br/>
+  <b>Email</b>: <%= @captain.email %><br/>
+  <b>password</b>: <%= @captain.password %><br/>
 
 <%= link_to "Back to Captains roster", captains_path %>

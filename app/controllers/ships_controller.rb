@@ -1,7 +1,10 @@
 class ShipsController < ApplicationController
 
+  before_filter :signed_in_captain
+  before_filter :correct_captain,   only: [:destroy]
+
   def index
-    @ships = Ship.all
+    @ships = current_captain.ships
   end
 
   def show
@@ -9,19 +12,28 @@ class ShipsController < ApplicationController
   end
 
   def new
+    @ship = Ship.new
   end
 
   def create
-    @ship = Ship.new(params[:ship])
-#@captain = Captain.find(@ship.captains_id) #why is this plural? so it works. I don't understand
-#   @planet = Planet.find(@ship.planet_id)
-#   @engine = Engine.find(@ship.engine_id)
-
+    @ship = current_captain.ships.build(params[:ship]) #assigns current_captain as ship owner
     if @ship.save
-      redirect_to @ship
+      flash[:success] = "ship created!"
+      redirect_to ships_path
     else
-      render :action => "new"
+      render 'index'
     end
   end
 
+  def destroy
+    @ship.destroy
+    redirect_to root_url
+  end
+
+  private
+
+    def correct_captain
+      @ship = current_captain.ships.find_by_id(params[:id])
+      redirect_to root_url if @ship.nil?
+    end
 end

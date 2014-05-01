@@ -12,10 +12,10 @@
   </tr>
 <% @ships.each do |ship| %>
   <tr>
-    <td><%= ship.name %></td>
+    <td><%= link_to ship.name, ship_path(ship.id) %></td>
     <td><%= ship.classification %></td>
     <td>
-      <% captain = Captain.find(ship.captains_id) 
+      <% captain = Captain.find(ship.captain_id) 
          planet  = Planet.find(ship.planet_id)
          engine  = Engine.find(ship.engine_id)  %>
       <%= link_to "Captain " + captain.last_name, captain_path(captain) %>

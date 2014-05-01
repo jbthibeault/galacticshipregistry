@@ -11,19 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140426211949) do
+ActiveRecord::Schema.define(:version => 20140427231752) do
 
   create_table "captains", :force => true do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.date    "date_of_birth"
-    t.integer "planet_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "date_of_birth"
+    t.integer  "planet_id"
+    t.string   "email"
+    t.decimal  "wallet"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "captains", ["email"], :name => "index_captains_on_email", :unique => true
+  add_index "captains", ["remember_token"], :name => "index_captains_on_remember_token"
 
   create_table "engines", :force => true do |t|
     t.string  "name"
-    t.text    "model_num"
-    t.text    "manufacturer"
+    t.integer "model_num"
+    t.string  "manufacturer"
     t.decimal "tax"
   end
 
@@ -34,13 +43,13 @@ ActiveRecord::Schema.define(:version => 20140426211949) do
   end
 
   create_table "ships", :force => true do |t|
-    t.text    "name"
-    t.decimal "weight"
+    t.string  "name"
+    t.string  "classification"
+    t.integer "weight"
     t.integer "num_engines"
     t.integer "engine_id"
+    t.integer "captain_id"
     t.integer "planet_id"
-    t.integer "captains_id"
-    t.text    "classification"
   end
 
 end
